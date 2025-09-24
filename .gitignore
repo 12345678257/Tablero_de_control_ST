@@ -1,0 +1,13 @@
+
+__pycache__/
+.venv/
+*.pyc
+*.pyo
+*.pyd
+.env
+.streamlit/secrets.toml
+.vscode/
+.idea/
+*.xlsx
+*.csv
+*.zip
