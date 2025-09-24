@@ -1,0 +1,23 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Import check
+        run: python - << 'PY'
+import importlib.util
+spec = importlib.util.spec_from_file_location('app', 'app_dashboard_td.py')
+mod = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(mod)
+print('OK: app imported')
+PY
