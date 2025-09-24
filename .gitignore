@@ -1,0 +1,1 @@
+__pycache__/\n.venv/\n*.pyc\n.env\n.streamlit/secrets.toml\n*.xlsx\n*.csv\n*.zip\n
